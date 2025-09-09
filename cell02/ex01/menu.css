@@ -17,6 +17,11 @@
   padding: 20px;
 }
 
+.dropdown a {
+    color: white;
+    text-decoration: none;
+}
+
 .menu a {
   display: block;
 }
