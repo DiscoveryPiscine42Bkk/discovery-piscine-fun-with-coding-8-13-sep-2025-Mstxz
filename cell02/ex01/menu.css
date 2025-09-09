@@ -1,0 +1,27 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.menu {
+  display: none;
+}
+
+.dropdown:hover .menu {
+  display: block;
+  background-color: rgb(191, 149, 217);
+  padding: 20px;
+}
+
+.menu a {
+  display: block;
+}
+
+.text {
+  background-color: rgb(206, 183, 215);
+  padding: 20px;
+}

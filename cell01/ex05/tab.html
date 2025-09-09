@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Full-Screen Table</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        table {
+            width: 100vw;
+            height: 100vh;
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        td {
+            width: 50%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
-    <main style="display: flex; justify-content: center; height: 100%; border: 2px solid black;">
-        <div style="background-color: #9773DD; width: 100%; height: 100%; display: flex; align-items: center; border: 1px solid black;">Yeah</div>
-        <div style="background-color: #5d7db1; width: 100%; height: 100%; display: flex; align-items: center; border: 1px solid black;">You should go use tailwindcss</div>
-    </main>
+    <table>
+        <tr>
+            <td style="background-color: #9773DD;">Yeah</td>
+            <td style="background-color: #5d7db1;">You should go use tailwindcss</td>
+        </tr>
+    </table>
 </body>
 </html>
