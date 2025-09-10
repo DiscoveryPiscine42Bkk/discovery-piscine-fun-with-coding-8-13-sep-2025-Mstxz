@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+</head>
+<body>
+  <h1>Calculator</h1>
+  <input type="text" id="expression">
+  <button onclick="calculate()">=</button>
+  <input type="text" id="result" placeholder="Result" readonly>
+
+  <script>
+    function calculate() {
+      const expr = document.getElementById('expression').value;
+      try {
+        const res = eval(expr);
+        document.getElementById('result').value = res;
+      } catch (err) {
+        document.getElementById('result').value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
