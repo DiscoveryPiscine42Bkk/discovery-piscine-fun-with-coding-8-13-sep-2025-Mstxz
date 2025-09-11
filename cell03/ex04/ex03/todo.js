@@ -54,7 +54,7 @@ function renderList() {
 
         const item = $("<li>")
             .attr("id", "removeable")
-            .html(highlighted)  // use HTML so spans render
+            .html(highlighted)
             .on("click", function () {
                 removeItem(index);
             });

@@ -36,17 +36,29 @@ function consMsg() {
 }
 
 function renderList() {
-    const displayed = document.getElementById('ft_list');
-    displayed.innerHTML = '';
+    const displayed = document.getElementById("ft_list");
+    displayed.innerHTML = ""; // clear the list
 
     todolist.forEach((todo, index) => {
-        const item = document.createElement('li');
+        let highlighted = todo;
+
+        // Highlight special words
+        highlighted = highlighted.replace(/(42)/g, '<span style="color:white; text-shadow: 0 0 10px white; font-size:50px;">$1</span>');
+        highlighted = highlighted.replace(/(AV-MXZIE)/g, '<span style="color:#00ff00; text-shadow: 0 0 10px #00ff00">$1</span>');
+        highlighted = highlighted.replace(/(AV-8)/g, '<span style="color:#00ffff; text-shadow: 0 0 10px #00ffff;">$1</span>');
+        highlighted = highlighted.replace(/(RX-8)/g, '<span style="color:red; text-shadow: 0 0 10px red;">$1</span>');
+
+        const item = document.createElement("li");
         item.id = "removeable";
-        item.textContent = todo;
-        item.onclick = () => removeItem(index);
+        item.innerHTML = highlighted; // use innerHTML so spans render
+        item.addEventListener("click", function() {
+            removeItem(index);
+        });
+
         displayed.appendChild(item);
     });
 }
+
 
 function removeItem(index) {
     todolist.splice(index, 1);

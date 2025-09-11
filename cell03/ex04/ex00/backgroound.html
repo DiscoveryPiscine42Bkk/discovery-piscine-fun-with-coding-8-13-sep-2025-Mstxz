@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="backgroound.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <button onclick="randomColor()">Click Me</button>
+
+    <script>
+        let $bg = $("body");
+
+        function randomColor() {
+            const randomNumber = Math.floor(Math.random() * 16777215);
+            let hexColor = randomNumber.toString(16).padStart(6, '0');
+
+            $bg.css("background-color", `#${hexColor}`);
+        }
+    </script>
+</body>
+</html>

@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="todo.js" defer></script>
     <title>Document</title>
     <style>
         body {
@@ -26,6 +28,7 @@
         #ft_list li:hover{
             text-decoration: line-through;
             font-style: italic;
+            text-shadow: 0 0 20px skyblue;
         }
 
         #inputlist {
@@ -34,6 +37,8 @@
             position: fixed;
             justify-content: center;
             align-items: center;
+            gap: 2rem;
+            flex-direction: column;
             width: 500px;
             height: 30%;
             background-color: rgb(23, 47, 93);
@@ -42,6 +47,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+
+        #inputlist button {
+            background-color: rgb(23, 47, 93);
+            border: 2px solid skyblue;
+            color: skyblue;
+            padding: 10px 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
         }
 
         header {
@@ -58,8 +72,12 @@
 </head>
 <body>
     <div id="inputlist">
+        <label style="font-size: 30px;">Enter todolist:</label>
         <input type="text" name="" id="todo-input"/>
-        <button onclick="doneList()">Done</button>
+        <nav>
+            <button onclick="doneList()">Done</button>
+            <button onclick="closeInput()">Cancel</button>
+        </nav>
     </div>
     <header>
         <h1>TO DO</h1>
@@ -69,6 +87,5 @@
     <div id="ft_list">
 
     </div>
-    <script src="todo.js"></script>
 </body>
 </html>
