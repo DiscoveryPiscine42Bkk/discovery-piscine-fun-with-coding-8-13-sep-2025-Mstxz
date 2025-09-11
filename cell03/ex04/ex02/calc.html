@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator (jQuery)</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Calculator</h1>
+  <label>First Number</label>
+  <input type="text" id="num1">
+  <label>Second Number</label>
+  <input type="text" id="num2">
+  <br><br>
+
+  <label for="operator">Select Operation:</label>
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
+  </select>
+
+  <br><br>
+  <button id="calcBtn">Try Me!</button>
+  <br><br>
+  <input type="text" id="result" placeholder="Result" readonly>
+
+  <script>
+    $(document).ready(function() {
+      $("#calcBtn").click(function() {
+        let num1 = parseFloat($("#num1").val());
+        let num2 = parseFloat($("#num2").val());
+        let operation = $("#operator").val();
+        let result;
+
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("Please enter valid numbers");
+          return;
+        }
+
+        switch (operation) {
+          case '+':
+            result = num1 + num2;
+            break;
+          case '-':
+            result = num1 - num2;
+            break;
+          case '*':
+            result = num1 * num2;
+            break;
+          case '/':
+            if (num2 === 0) {
+              alert("Cannot divide by zero");
+              return;
+            }
+            result = num1 / num2;
+            break;
+          case '%':
+            result = num1 % num2;
+            break;
+          default:
+            alert("Please select an operation");
+            return;
+        }
+
+        $("#result").val(result);
+      });
+    });
+  </script>
+</body>
+</html>

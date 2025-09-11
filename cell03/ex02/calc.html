@@ -6,19 +6,64 @@
 </head>
 <body>
   <h1>Calculator</h1>
-  <input type="text" id="expression">
-  <button onclick="calculate()">=</button>
+  <label>First Number</label>
+  <input type="text" id="num1">
+  <label>Second Number</label>
+  <input type="text" id="num2">
+  <br><br>
+
+  <label for="operator">Select Operation:</label>
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
+  </select>
+
+  <br><br>
+  <button onclick="calculate()">Try Me!</button>
+  <br><br>
   <input type="text" id="result" placeholder="Result" readonly>
 
   <script>
     function calculate() {
-      const expr = document.getElementById('expression').value;
-      try {
-        const res = eval(expr);
-        document.getElementById('result').value = res;
-      } catch (err) {
-        document.getElementById('result').value = 'Error';
+      let num1 = parseFloat(document.getElementById('num1').value);
+      let num2 = parseFloat(document.getElementById('num2').value);
+      let operation = document.getElementById('operator').value;
+      let result;
+
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Please enter valid numbers");
+        return;
       }
+
+      switch (operation) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          if (num2 === 0) {
+            alert("Cannot divide by zero");
+            return;
+          }
+          result = num1 / num2;
+          break;
+        case '%':
+          result = num1 % num2;
+          break;
+        default:
+          alert("Please select an operation");
+          return;
+      }
+
+      document.getElementById('result').value = result;
     }
   </script>
 </body>

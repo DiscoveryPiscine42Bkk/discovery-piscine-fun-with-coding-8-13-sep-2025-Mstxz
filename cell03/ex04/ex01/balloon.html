@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #balloon {
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="balloon"></div>
+
+<script>
+  const colors = ['red', 'green', 'blue'];
+  let size = 200;
+  let ci = 0;
+
+  function apply() {
+    $("#balloon").css({
+      width: size + "px",
+      height: size + "px",
+      background: colors[ci]
+    });
+  }
+
+  function nextIndex(step) {
+    ci = (ci + step + colors.length) % colors.length;
+  }
+
+  $("#balloon").on("click", function () {
+    size += 10;
+    nextIndex(+1);
+    if (size > 420) {
+      size = 200;
+      ci = 0;
+    }
+    apply();
+  });
+
+  $("#balloon").on("mouseleave", function () {
+    size = Math.max(200, size - 5);
+    if (size == 200) {
+      ci = 0;
+    } else {
+      nextIndex(-1);
+    }
+    apply();
+  });
+
+  // Initial setup
+  apply();
+</script>
+</body>
+</html>

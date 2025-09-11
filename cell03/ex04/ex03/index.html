@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="todo.js" defer></script>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: rgb(20, 50, 80);
+            color: rgb(181, 208, 232);
+        }
+        #ft_list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #ft_list li {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #ft_list li:hover{
+            text-decoration: line-through;
+            font-style: italic;
+            text-shadow: 0 0 20px skyblue;
+        }
+
+        #inputlist {
+            display: none; /* initially hidden */
+            z-index: 1;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-direction: column;
+            width: 500px;
+            height: 30%;
+            background-color: rgb(23, 47, 93);
+            color: white;
+            border: 2px solid skyblue;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #inputlist button {
+            background-color: rgb(23, 47, 93);
+            border: 2px solid skyblue;
+            color: skyblue;
+            padding: 10px 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        header button {
+            font-family: 'Courier New', Courier, monospace;
+            width: 250px;
+            height: 50px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="inputlist">
+        <label style="font-size: 30px;">Enter todolist:</label>
+        <input type="text" name="" id="todo-input"/>
+        <nav>
+            <button onclick="doneList()">Done</button>
+            <button onclick="closeInput()">Cancel</button>
+        </nav>
+    </div>
+    <header>
+        <h1>TO DO</h1>
+        <button onclick="displayNewList()" class="new">New</button>
+    </header>
+    <hr>
+    <div id="ft_list">
+
+    </div>
+</body>
+</html>
