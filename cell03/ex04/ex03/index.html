@@ -31,7 +31,7 @@
             text-shadow: 0 0 20px skyblue;
         }
 
-        #inputlist {
+        #inputlist, #confirmlist {
             display: none; /* initially hidden */
             z-index: 1;
             position: fixed;
@@ -79,6 +79,13 @@
             <button onclick="closeInput()">Cancel</button>
         </nav>
     </div>
+
+    <div id="confirmlist">
+        <label>Confirm?</label>
+        <button onclick="removeItem()">Sure</button>
+        <button onclick="closeConfirm()">No</button>
+    </div>
+
     <header>
         <h1>TO DO</h1>
         <button onclick="displayNewList()" class="new">New</button>

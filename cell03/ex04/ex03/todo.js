@@ -12,6 +12,15 @@ $(document).ready(function () {
     }
 });
 
+function displayConfirm(){
+    $('#confirmlist').css("display","flex");
+}
+
+function closeConfirm(){
+    $('#confirmlist').css("display", "none");
+
+}
+
 function closeInput(){
     $('#inputlist').css("display", "none");
     $("#todo-input").val('');
@@ -56,7 +65,7 @@ function renderList() {
             .attr("id", "removeable")
             .html(highlighted)
             .on("click", function () {
-                removeItem(index);
+                displayConfirm();
             });
 
         displayed.append(item);
@@ -68,6 +77,7 @@ function removeItem(index) {
     todolist.splice(index, 1);
     updateCookie();
     renderList();
+    closeConfirm();
 }
 
 // Cookie helper functions
