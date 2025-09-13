@@ -29,50 +29,50 @@
 
   <script>
     function pleaseUSEME() {
-      alert("please use me...");
+      alert("Please, use me...");
     }
 
     $(document).ready(function () {
+      setInterval(function () {
+        pleaseUSEME();
+      }, 30000);
+
       $("#calcBtn").click(function () {
-        let num1 = parseFloat($("#num1").val());
-        let num2 = parseFloat($("#num2").val());
+        let num1 = parseInt($("#num1").val());
+        let num2 = parseInt($("#num2").val());
         let operation = $("#operator").val();
         let result;
-
-        if ($("#num1").val().trim() === "" || $("#num2").val().trim() === "") {
-          pleaseUSEME();
-          return;
-        }
 
         if (isNaN(num1) || isNaN(num2)) {
           alert("Error :(");
           return;
-        }
-        else if (num1 < 0 || num2 < 0){
-          alert("It's over 9000!");
+        } else if (num1 < 0 || num2 < 0) {
+          alert("Error :(");
           return;
         }
 
         switch (operation) {
-          case '+':
+          case "+":
             result = num1 + num2;
             break;
-          case '-':
+          case "-":
             result = num1 - num2;
             break;
-          case '*':
+          case "*":
             result = num1 * num2;
             break;
-          case '/':
+          case "/":
             if (num2 === 0) {
               alert("It's over 9000!");
+              console.log("It's over 9000!");
               return;
             }
             result = num1 / num2;
             break;
-          case '%':
+          case "%":
             if (num2 === 0) {
               alert("It's over 9000!");
+              console.log("It's over 9000!");
               return;
             }
             result = num1 % num2;
@@ -82,11 +82,11 @@
             return;
         }
 
-
         console.log(result);
         alert(result);
       });
     });
+
 
   </script>
 </body>
