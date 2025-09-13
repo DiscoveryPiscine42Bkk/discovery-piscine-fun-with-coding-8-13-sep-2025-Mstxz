@@ -61,7 +61,7 @@ function renderList() {
         highlighted = highlighted.replace(/(AV-8)/g, '<span style="color:#00ffff; text-shadow: 0 0 10px #00ffff;">$1</span>');
         highlighted = highlighted.replace(/(RX-8)/g, '<span style="color:red; text-shadow: 0 0 10px red;">$1</span>');
 
-        const item = $("<li>")
+        const item = $("<div>")
             .attr("id", "removeable")
             .html(highlighted)
             .on("click", function () {
