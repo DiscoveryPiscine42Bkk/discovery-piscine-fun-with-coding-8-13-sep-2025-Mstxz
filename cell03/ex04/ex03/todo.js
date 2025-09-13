@@ -46,7 +46,7 @@ function renderList() {
     todolist.forEach((todo, index) => {
         let highlighted = todo;
 
-        // Highlight special words
+        // Special word cuz I want too eiei
         highlighted = highlighted.replace(/(42)/g, '<span style="color:white; text-shadow: 0 0 10px white; font-size:50px;">$1</span>');
         highlighted = highlighted.replace(/(AV-MXZIE)/g, '<span style="color:#00ff00; text-shadow: 0 0 10px #00ff00">$1</span>');
         highlighted = highlighted.replace(/(AV-8)/g, '<span style="color:#00ffff; text-shadow: 0 0 10px #00ffff;">$1</span>');

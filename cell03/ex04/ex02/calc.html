@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Simple Calculator (jQuery)</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
+
 <body>
   <h1>Calculator</h1>
   <label>First Number</label>
@@ -24,19 +26,30 @@
 
   <br><br>
   <button id="calcBtn">Try Me!</button>
-  <br><br>
-  <input type="text" id="result" placeholder="Result" readonly>
 
   <script>
-    $(document).ready(function() {
-      $("#calcBtn").click(function() {
+    function pleaseUSEME() {
+      alert("please use me...");
+    }
+
+    $(document).ready(function () {
+      $("#calcBtn").click(function () {
         let num1 = parseFloat($("#num1").val());
         let num2 = parseFloat($("#num2").val());
         let operation = $("#operator").val();
         let result;
 
+        if ($("#num1").val().trim() === "" || $("#num2").val().trim() === "") {
+          pleaseUSEME();
+          return;
+        }
+
         if (isNaN(num1) || isNaN(num2)) {
-          alert("Please enter valid numbers");
+          alert("Error :(");
+          return;
+        }
+        else if (num1 < 0 || num2 < 0){
+          alert("It's over 9000!");
           return;
         }
 
@@ -52,22 +65,30 @@
             break;
           case '/':
             if (num2 === 0) {
-              alert("Cannot divide by zero");
+              alert("It's over 9000!");
               return;
             }
             result = num1 / num2;
             break;
           case '%':
+            if (num2 === 0) {
+              alert("It's over 9000!");
+              return;
+            }
             result = num1 % num2;
             break;
           default:
-            alert("Please select an operation");
+            alert("Error :(");
             return;
         }
 
-        $("#result").val(result);
+
+        console.log(result);
+        alert(result);
       });
     });
+
   </script>
 </body>
+
 </html>
